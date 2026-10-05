@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Kulkarni | Personal Portfolio & Software Developer Blog</title>
+    <meta name="description"
+        content="Personal portfolio of Ayush Kulkarni, 4th Semester Computer Science Student at CSE. Showcasing software engineering projects, Git workflows, pair programming, and LeetCode algorithmic solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --bg-card: rgba(30, 41, 59, 0.6);
+            --bg-card-hover: rgba(51, 65, 85, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(99, 102, 241, 0.4);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.35);
+            --secondary: #3b82f6;
+            --accent: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 65%, rgba(59, 130, 246, 0.12) 0%, transparent 40%);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* Hero Section */
+        #hero {
+            padding-top: 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .pill-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50px;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .pill-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-bio {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.75rem;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--text-muted);
+            transform: translateY(-2px);
+        }
+
+        /* Cards Grid */
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-num {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            width: fit-content;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            color: var(--primary);
+            gap: 0.6rem;
+        }
+
+        /* Skills Layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-group {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+        }
+
+        .skill-group-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            border-color: var(--primary);
+            color: var(--text-main);
+            background: rgba(99, 102, 241, 0.15);
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Toast notification */
+        #toast {
+            visibility: hidden;
+            min-width: 280px;
+            background-color: var(--accent);
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 1rem;
+            position: fixed;
+            z-index: 1000;
+            bottom: 30px;
+            right: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 40px;
+        }
+
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                flex-direction: column;
+                padding-top: 7rem;
+                gap: 2rem;
+            }
+
+            h1 {
+                font-size: 2.3rem;
+            }
+
+            .contact-box {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                Ayush Kulkarni <span class="logo-badge">CSE</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Hero / About Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <div class="pill-tag">
+                    <span class="pill-dot"></span> 4th Semester Student • CSE Branch
+                </div>
+                <h1 id="about">Building Scalable Code & Master Developer Tools</h1>
+                <p class="hero-bio">
+                    Hello! I'm <strong>Ayush Kulkarni</strong>, a Computer Science & Engineering student passionate
+                    about full-stack web development, pair programming, and data structures. My career goal is to master
+                    cloud-native architecture and contribute to open-source software projects while preparing for a
+                    Software Engineering Internship.
+                </p>
+                <div class="btn-group">
+                    <a href="#projects" class="btn btn-primary">View My Artifacts</a>
+                    <a href="https://github.com/ayushkulkarni" target="_blank" class="btn btn-outline">GitHub Profile
+                        ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header">
+                <p class="section-subtitle">Technical Artifacts</p>
+                <h2 class="section-title">Lab Activities & Repositories</h2>
+            </div>
+
+            <div class="grid">
+                <!-- Activity 1 -->
+                <div class="card">
+                    <div>
+                        <span class="card-num">Activity 01</span>
+                        <h3 class="card-title">VS Code Environment Setup</h3>
+                        <p class="card-desc">
+                            Configured an optimized development setup in Visual Studio Code with ESLint, Prettier,
+                            GitGraph, C/C++ extensions, and custom keyboard shortcuts for peak productivity.
+                        </p>
+                    </div>
+                    <div>
+                        <span class="tag">VS Code Setup</span>
+                    </div>
+                </div>
+
+                <!-- Activity 2 -->
+                <div class="card">
+                    <div>
+                        <span class="card-num">Activity 02</span>
+                        <h3 class="card-title">Git & GitHub Workflow</h3>
+                        <p class="card-desc">
+                            Configured SSH keys, conventional commits, feature branching, and remote synchronization.
+                            Built and published the initial Hello World starter repository.
+                        </p>
+                    </div>
+                    <a href="https://github.com/ayushkulkarni/hello-world" target="_blank" class="card-link">
+                        View Repository ↗
+                    </a>
+                </div>
+
+                <!-- Activity 3 -->
+                <div class="card">
+                    <div>
+                        <span class="card-num">Activity 03</span>
+                        <h3 class="card-title">GitLens & Live Share</h3>
+                        <p class="card-desc">
+                            Leveraged GitLens for deep inline code blame and line-by-line commit history inspection.
+                            Conducted real-time remote pair-programming sessions using VS Code Live Share.
+                        </p>
+                    </div>
+                    <a href="https://github.com/ayushkulkarni/pair-programming-log" target="_blank" class="card-link">
+                        View Repository ↗
+                    </a>
+                </div>
+
+                <!-- Activity 4 -->
+                <div class="card">
+                    <div>
+                        <span class="card-num">Activity 04</span>
+                        <h3 class="card-title">LeetCode Practice Repository</h3>
+                        <p class="card-desc">
+                            A structured algorithms repository documenting LeetCode solutions with time ($O(N)$) and
+                            space ($O(1)$) complexity analyses, unit tests, and problem tagging.
+                        </p>
+                    </div>
+                    <a href="https://github.com/ayushkulkarni/leetcode-solutions" target="_blank" class="card-link">
+                        View Repository ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <p class="section-subtitle">Competencies</p>
+                <h2 class="section-title">Technical Skill Set</h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3 class="skill-group-title">⚡ Languages</h3>
+                    <div class="tag-cloud">
+                        <span class="tag">C</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript (ES6+)</span>
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-title">🛠️ Tools & Platforms</h3>
+                    <div class="tag-cloud">
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
+                        <span class="tag">VS Code</span>
+                        <span class="tag">GitLens</span>
+                        <span class="tag">Live Share</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-title">🧠 Core Competencies</h3>
+                    <div class="tag-cloud">
+                        <span class="tag">Data Structures & Algorithms</span>
+                        <span class="tag">Version Control</span>
+                        <span class="tag">Pair Programming</span>
+                        <span class="tag">Clean Code Practices</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="section-header">
+                <p class="section-subtitle">Get In Touch</p>
+                <h2 class="section-title">Contact & Connect</h2>
+            </div>
+
+            <div class="contact-box">
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Let's Connect</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                        Feel free to reach out for collaborations, software engineering internships, or algorithm
+                        discussion!
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        <strong>Email:</strong> ayush.kulkarni@example.com<br>
+                        <strong>GitHub:</strong> <a href="https://github.com/ayushkulkarni" target="_blank"
+                            style="color: var(--primary);">github.com/ayushkulkarni</a><br>
+                        <strong>Branch:</strong> Computer Science & Engineering (4th Sem)
+                    </p>
+                </div>
+
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Jane Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="jane@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" placeholder="Write your message here..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Notification Toast -->
+    <div id="toast">Message sent successfully!</div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Ayush Kulkarni. Activity 5: AI-Driven Personal Portfolio Web Page.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const toast = document.getElementById("toast");
+            toast.className = "show";
+            document.getElementById("contactForm").reset();
+            setTimeout(function () {
+                toast.className = toast.className.replace("show", "");
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
